@@ -46,10 +46,10 @@
     <div>
         <span> 打点关键字 </span>
         <select id="dot_key">
-          <option value ="Windows">onLeavingRoom</option>
-          <option value="Android">onEnterRoom</option>
-          <option value ="Mac">startMeeting</option>
-          <option value="IOS">stopMeeting</option>
+          <option value ="onLeavingRoom">onLeavingRoom</option>
+          <option value="onEnterRoom">onEnterRoom</option>
+          <option value ="startMeeting">startMeeting</option>
+          <option value="stopMeeting">stopMeeting</option>
         </select>
     </div>
     <br></br>
@@ -79,11 +79,11 @@
     </thead>
     <tbody id="query_result">
       <meta charset="UTF-8">
-      {% for book in books %}
+      {% for record in records %}
         <tr>
-            <td>{{ book.name}}</td>
-            <td>{{ book.author}}</td>
-            <td>{{ book.price}}</td>
+            {% for item in record %}
+                <td>{{ item }}</td>
+            {% endfor %}
         </tr>
       {% endfor %}
     </tbody>
