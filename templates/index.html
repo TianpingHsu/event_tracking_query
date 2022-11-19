@@ -1,0 +1,96 @@
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QUERY</title>
+</head>
+<body>
+    <div>
+        <span>
+            端类型
+        </span>
+        <select id="terminal_type">
+          <option value ="Windows">Windows</option>
+          <option value="Android">Android</option>
+          <option value ="Mac">Mac</option>
+          <option value="IOS">IOS</option>
+        </select>
+    </div>
+    <br></br>
+
+    <div>
+        <span> 开始时间 </span>
+        <input id="start_time" type="datetime-local" step="1" value="2022-11-19T15:14:00">
+        <span> 结束时间 </span>
+        <input id="end_time" type="datetime-local" step="1" value="2022-11-19T15:14:59">
+    </div>
+    <br></br>
+
+    <div>
+        <span> 开始版本 </span>
+        <select id="start_version">
+          <option value ="1.1.3">1.1.3</option>
+          <option value ="1.1.4">1.1.4</option>
+          <option value ="1.1.5">1.1.5</option>
+        </select>
+
+        <span> 结束版本 </span>
+        <select id="end_version">
+          <option value ="1.1.3">1.1.3</option>
+          <option value ="1.1.4">1.1.4</option>
+          <option value ="1.1.5">1.1.5</option>
+        </select>
+    </div>
+    <br></br>
+
+    <div>
+        <span> 打点关键字 </span>
+        <select id="dot_key">
+          <option value ="Windows">onLeavingRoom</option>
+          <option value="Android">onEnterRoom</option>
+          <option value ="Mac">startMeeting</option>
+          <option value="IOS">stopMeeting</option>
+        </select>
+    </div>
+    <br></br>
+
+    <div>
+        <button id="btn_query">query</button>
+    </div>
+    <br></br>
+
+    <hr />
+
+    <div>
+        <span>
+            {{ condition }}
+        </span>
+        <br></br>
+        <span>
+            {{ sql_statement }}
+        </span>
+    </div>
+    <br></br>
+<table>
+    <thead>
+    <th>书名</th>
+    <th>作者</th>
+    <th>价钱</th>
+    </thead>
+    <tbody id="query_result">
+      <meta charset="UTF-8">
+      {% for book in books %}
+        <tr>
+            <td>{{ book.name}}</td>
+            <td>{{ book.author}}</td>
+            <td>{{ book.price}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+ 
+         <script src="{{ url_for('static', filename = 'js/jquery.min.js') }}" ></script>
+         <script src="{{ url_for('static', filename = 'js/event_tracking.js') }}" ></script>
+
+</body>
+</html>
