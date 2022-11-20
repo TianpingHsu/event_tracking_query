@@ -27,23 +27,6 @@
         <br></br>
 
         <div>
-            <!--
-                <span> 开始版本 </span>
-                <select id="start_version">
-                <option value ="1.1.3">1.1.3</option>
-                <option value ="1.1.4">1.1.4</option>
-                <option value ="1.1.5">1.1.5</option>
-                </select>
-
-                <span> 结束版本 </span>
-                <select id="end_version">
-                <option value ="1.1.3">1.1.3</option>
-                <option value ="1.1.4">1.1.4</option>
-                <option value ="1.1.5">1.1.5</option>
-                </select>
-                <br></br>
-            -->
-
             <span> 版本 </span>
             {% for version in versions %}
             <div>
@@ -58,10 +41,11 @@
         <div>
             <span> 打点关键字 </span>
             <select id="dot_key">
-                <option value ="onLeavingRoom">onLeavingRoom</option>
-                <option value="onEnterRoom">onEnterRoom</option>
-                <option value ="startMeeting">startMeeting</option>
-                <option value="stopMeeting">stopMeeting</option>
+                {% for key in keys %}
+                <div>
+                    <option value ="{{key}}">{{key}}</option>
+                </div>
+                {% endfor %}
             </select>
         </div>
         <br></br>
@@ -85,16 +69,18 @@
         <br></br>
         <table>
             <thead>
-                <th>书名</th>
-                <th>作者</th>
-                <th>价钱</th>
+                {% for th in ths %}
+                <div>
+                    <th width="200"> {{ th }} </th>
+                </div>
+                {% endfor %}
             </thead>
             <tbody id="query_result">
                 <meta charset="UTF-8">
                 {% for record in records %}
                 <tr>
                     {% for item in record %}
-                    <td>{{ item }}</td>
+                    <td width="150">{{ item }}</td>
                     {% endfor %}
                 </tr>
                 {% endfor %}

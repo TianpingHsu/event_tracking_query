@@ -22,7 +22,7 @@ $("#btn_query").click(function() {
         contentType: 'application/json',
         data: JSON.stringify(data),
         success: function(result) {
-            console.log(result);
+            //console.log(result);
             document.open();
             document.write(result);
             document.close();

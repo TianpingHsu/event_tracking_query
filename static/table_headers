@@ -1,0 +1,17 @@
+id
+trace_id
+terminal_uuid
+terminal_type
+terminal_version
+model_type
+project
+app_key
+app_name
+app_version
+dot_name
+dot_key
+dot_type
+dot_data
+dot_module
+dot_timestamp
+gmt_create
