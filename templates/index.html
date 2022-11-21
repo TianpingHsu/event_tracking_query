@@ -3,6 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>QUERY</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+        </style>
     </head>
     <body>
         <div>
@@ -10,17 +20,18 @@
                 端类型
             </span>
             <select id="terminal_type">
-                <option value ="Windows">Windows</option>
-                <option value="Android">Android</option>
-                <option value ="Mac">Mac</option>
-                <option value="IOS">IOS</option>
+                <option value="I">IOS</option>
+                <option value ="M">Mac</option>
+                <option value="A">Android</option>
+                <option value ="W">Windows</option>
+                <!-- <option value="HDC">HDC</option> -->
             </select>
         </div>
         <br></br>
 
         <div>
             <span> 开始时间 </span>
-            <input id="start_time" type="datetime-local" step="1" value="2022-11-19T15:14">
+            <input id="start_time" type="datetime-local" step="1" value="2022-11-10T15:14">
             <span> 结束时间 </span>
             <input id="end_time" type="datetime-local" step="1" value="2022-11-19T15:15">
         </div>
@@ -65,13 +76,17 @@
             <span>
                 {{ sql_statement }}
             </span>
+            <br></br>
+            <span>
+                {{ total_count }}
+            </span>
         </div>
         <br></br>
-        <table>
+        <table style="width:100%">
             <thead>
                 {% for th in ths %}
                 <div>
-                    <th width="200"> {{ th }} </th>
+                    <th width="130"> {{ th }} </th>
                 </div>
                 {% endfor %}
             </thead>
@@ -80,7 +95,7 @@
                 {% for record in records %}
                 <tr>
                     {% for item in record %}
-                    <td width="150">{{ item }}</td>
+                    <td width="130">{{ item }}</td>
                     {% endfor %}
                 </tr>
                 {% endfor %}

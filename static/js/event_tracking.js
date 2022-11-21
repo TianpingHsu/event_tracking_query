@@ -26,10 +26,10 @@ $("#btn_query").click(function() {
             document.open();
             document.write(result);
             document.close();
-            $('#terminal_type').val(terminal_type)
-            $("#start_time").val(start_time)
-            $("#end_time").val(end_time)
-
+            $('#terminal_type').val(terminal_type);
+            $("#start_time").val(start_time);
+            $("#end_time").val(end_time);
+            $('#dot_key').val(dot_key);
             for (const version of versions) {
                 $('#' + version.replace('.', '\\.')).prop("checked", true);
             }
